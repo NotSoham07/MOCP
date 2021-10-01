@@ -9,8 +9,8 @@ namespace MOCP.Services
     public interface IMentor
     {
         IEnumerable<Mentor> GetMentors { get; }
-        Mentor GetMentor(int Id);
+        Mentor GetMentor(int? Id);
         void Add(Mentor _Mentor);
-        void Remove(int Id);
+        void Remove(int? Id);
     }
 }

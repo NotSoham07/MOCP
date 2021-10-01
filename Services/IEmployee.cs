@@ -9,8 +9,8 @@ namespace MOCP.Services
     public interface IEmployee
     {
         IEnumerable<Employee> GetEmployees { get; }
-        Employee GetEmployee(int Id);
+        Employee GetEmployee(int? Id);
         void Add(Employee _Employee);
-        void Remove(int Id);
+        void Remove(int? Id);
     }
 }

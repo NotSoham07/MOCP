@@ -1,0 +1,163 @@
+﻿@model IEnumerable<MOCP.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+    <h1>Employees</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartmentId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PositionId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeofChange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateofJoining)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateofTransfer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeFrame)
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (User.IsInRole("Admin"))
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmpName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmpId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departments.DepartmentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Positions.PositionName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypeofChange)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateofJoining)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateofTransfer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeFrame)
+                        </td>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.MocNo">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.MocNo">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.MocNo">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+                else if (User.IsInRole("IT"))
+                {
+                    if (item.Departments.DepartmentName == "IT")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmpName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmpId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Departments.DepartmentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Positions.PositionName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TypeofChange)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateofJoining)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateofTransfer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TimeFrame)
+                            </td>
+
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.MocNo">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.MocNo">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.MocNo">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else if (User.IsInRole("HR"))
+                {
+                    if (item.Departments.DepartmentName == "HR")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmpName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmpId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Departments.DepartmentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Positions.PositionName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TypeofChange)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateofJoining)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateofTransfer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TimeFrame)
+                            </td>
+
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.MocNo">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.MocNo">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.MocNo">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                
+
+            }
+        </tbody>
+    </table>

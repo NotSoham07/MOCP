@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MOCP.Models;
 using MOCP.Services;
 using System;
@@ -15,6 +16,7 @@ namespace MOCP.Controllers
         {
             _Position = _IPosition;
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View(_Position.GetPositions);

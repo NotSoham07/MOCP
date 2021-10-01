@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MOCP.Repository
 {
@@ -15,7 +16,7 @@ namespace MOCP.Repository
             db = _db;
         }
 
-        public IEnumerable<Course> GetCourses => db.Courses;
+        public IEnumerable<Course> GetCourses => db.Courses.Include(d => d.Departments).Include(d => d.Mentors);
 
         public void Add(Course _Course)
         {
@@ -23,12 +24,12 @@ namespace MOCP.Repository
             db.SaveChanges();
         }
 
-        public Course GetCourse(int Id)
+        public Course GetCourse(int? Id)
         {
             return db.Courses.Find(Id);
         }
 
-        public void Remove(int Id)
+        public void Remove(int? Id)
         {
             Course dbEntity = db.Courses.Find(Id);
             db.Courses.Remove(dbEntity);

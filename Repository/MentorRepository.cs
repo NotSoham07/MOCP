@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MOCP.Repository
 {
@@ -15,7 +16,7 @@ namespace MOCP.Repository
             db = _db;
         }
 
-        public IEnumerable<Mentor> GetMentors => db.Mentors;
+        public IEnumerable<Mentor> GetMentors => db.Mentors.Include(d => d.Departments);
 
         public void Add(Mentor _Mentor)
         {
@@ -23,12 +24,12 @@ namespace MOCP.Repository
             db.SaveChanges();
         }
 
-        public Mentor GetMentor(int Id)
+        public Mentor GetMentor(int? Id)
         {
             return db.Mentors.Find(Id);
         }
 
-        public void Remove(int Id)
+        public void Remove(int? Id)
         {
             Mentor dbEntity = db.Mentors.Find(Id);
             db.Mentors.Remove(dbEntity);

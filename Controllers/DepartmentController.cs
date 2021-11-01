@@ -55,5 +55,10 @@ namespace MOCP.Controllers
             _Department.Remove(Id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            return View(_Department.GetDepartment(Id));
+        }
     }
 }

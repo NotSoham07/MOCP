@@ -165,3 +165,8 @@ E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Create.cshtml.g.cs
 E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Mentor\Delete.cshtml.g.cs
 E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Course\Delete.cshtml.g.cs
 E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Delete.cshtml.g.cs
+E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Department\Details.cshtml.g.cs
+E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Course\Details.cshtml.g.cs
+E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Details.cshtml.g.cs
+E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Mentor\Details.cshtml.g.cs
+E:\source\MOCP\obj\Debug\netcoreapp3.1\Razor\Views\Position\Details.cshtml.g.cs

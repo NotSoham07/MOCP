@@ -56,5 +56,10 @@ namespace MOCP.Controllers
             _Position.Remove(Id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            return View(_Position.GetPosition(Id));
+        }
     }
 }

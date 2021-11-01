@@ -48,6 +48,7 @@ namespace MOCP.Models
         
         public Department Departments { get; set; }
         public Position Positions { get; set; }
+        public ICollection<Course> Courses { get; set; }
         
 
     }

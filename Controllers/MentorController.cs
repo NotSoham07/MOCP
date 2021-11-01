@@ -58,5 +58,10 @@ namespace MOCP.Controllers
             _Mentor.Remove(Id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            return View(_Mentor.GetMentor(Id));
+        }
     }
 }

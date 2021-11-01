@@ -66,5 +66,10 @@ namespace MOCP.Controllers
             _Employee.Remove(Id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            return View(_Employee.GetEmployee(Id));
+        }
     }
 }
